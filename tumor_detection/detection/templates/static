@@ -1,0 +1,3 @@
+<img src="{% static 'training_graph.png' %}" alt="Training Graph">
+<img src="{% static tumor_localized_url %}" alt="Localized Tumor with Red Circle" />
+

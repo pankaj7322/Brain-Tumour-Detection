@@ -1,0 +1,8 @@
+Django==5.1.1
+tensorflow
+keras
+scikit-learn
+matplotlib
+numpy
+Pillow
+opencv-python

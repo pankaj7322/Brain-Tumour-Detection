@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Tumor Detection</title>
+    {% load static %}
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Brain Tumor Detection</h1>
+        </div>
+        
+        <!-- Middle Section Divided into Two Halves -->
+        <div class="middle">
+            <div class="message-box">
+                <p>{{ message }}</p>
+            </div>
+            <div class="image-box">
+                {% if uploaded_file_url %}
+                    <p>Uploaded Image:</p>
+                    <img src="{{ uploaded_file_url }}" alt="Uploaded Image" />
+                {% endif %}
+            
+                {% if processed_file_url %}
+                    <p>Processed Image with Tumor Localization:</p>
+                    <img src="{% static processed_file_url %}" alt="Processed Image" />
+                {% endif %}
+                
+                {% if tumor_localized_url %}
+                    <h3>Localized Tumor:</h3>
+                    <p>Tumor Localized: <img src="{{ tumor_localized_url }}" alt="Localized Tumor"></p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="box box1">
+                <form method="post" action="{% url 'upload_dataset' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="file" id="file" required><br><br>
+                    <button type="submit">Upload Brain Tumor Images Dataset</button><br><br>
+                </form>
+            </div>
+            <div class="box box2">
+                <button onclick="window.location.href='{% url 'preprocess' %}'">Dataset Preprocessing & Features Extraction</button><br><br>
+                <button onclick="window.location.href='{% url 'graph' %}'">Train Accuracy Graph</button><br><br>
+            </div>
+            <div class="box box3">
+                <button onclick="window.location.href='{% url 'train_model' %}'">Train CNN Brain Tumor Detection Model</button><br><br>
+                <form method="post" action="{% url 'tumor_classification' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="file" name="image-name" id="file" required><br><br>
+                    <button type="submit">Brain Tumor Prediction</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #bdbf3e;
+    }
+    .header {
+        width: 100vw;
+        height: 70px;
+        text-align: center;
+        padding-top: 20px;
+        background-color: rgb(19, 99, 186);
+        color: white;
+    }
+    .middle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100vw;
+        height: 430px;
+        padding: 10px;
+    }
+    .message-box, .image-box {
+        width: 48%;
+        height: 100%;
+        border: 2px solid #ddd;
+        padding: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        overflow-y: auto;
+        background-color: #fff;
+    }
+    .message-box {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .image-box img {
+        max-width: 100%;
+        max-height: 100%;
+        display: block;
+        margin: auto;
+    }
+    .footer {
+        width: 100vw;
+        height: 150px;
+        display: flex;
+    }
+    .footer .box {
+        width: 33%;
+        height: 150px;
+    }
+    button, input[type="file"] {
+        padding: 10px;
+        border: none;
+        background-color: rgb(13, 195, 13);
+        font-weight: bold;
+        color: white;
+        margin-left: 100px;
+    }
+</style>
+</html>
