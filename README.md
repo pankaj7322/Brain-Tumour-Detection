@@ -44,7 +44,7 @@ python manage.py migrate
 ```
 6. Navigate to http://127.0.0.1:8000/ in your web browser to access the app.
 
-### Overview of the Code
+## Overview of the Code
 
 1. Login and Authentication
 
@@ -80,7 +80,7 @@ The login_view and logout_view handle user authentication. Users can log in with
     This plot is displayed on the web interface for visual feedback.
     
     
-### file stucture
+## file stucture
 
 ```
 ├── media/                    # Uploaded files and localized images
@@ -98,7 +98,7 @@ The login_view and logout_view handle user authentication. Users can log in with
 ├── requirements.txt          # Python dependencies
 └── README.md                 # Project documentation
 ```
-### Contributing
+## Contributing
 
 Feel free to open issues, submit pull requests, or suggest improvements. Make sure to follow the standard GitHub workflow:
 
@@ -106,7 +106,7 @@ Feel free to open issues, submit pull requests, or suggest improvements. Make su
     2. Create a new branch for your changes.
     3. Submit a pull request with a clear description of your changes.
 
-### License
+## License
 
 This project is licensed the MIT License
 
