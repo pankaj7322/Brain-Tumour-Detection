@@ -45,6 +45,7 @@ python manage.py migrate
 6. Navigate to http://127.0.0.1:8000/ in your web browser to access the app.
 
 ### Overview of the Code
+
 1. Login and Authentication
 
 The login_view and logout_view handle user authentication. Users can log in with their credentials, and upon successful authentication, they are redirected to the home page.
@@ -80,6 +81,7 @@ The login_view and logout_view handle user authentication. Users can log in with
     
     
 ### file stucture
+
 ```
 ├── media/                    # Uploaded files and localized images
 ├── Model/                    # Pre-trained models and weights
@@ -105,5 +107,6 @@ Feel free to open issues, submit pull requests, or suggest improvements. Make su
     3. Submit a pull request with a clear description of your changes.
 
 ### License
+
 This project is licensed the MIT License
 
