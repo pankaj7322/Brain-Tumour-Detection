@@ -89,7 +89,7 @@ The login_view and logout_view handle user authentication. Users can log in with
 │   ├── segmented_weights.h5 # Weights for the segmentation model
 │   ├── model.json            # Model architecture for CNN classifier
 │   ├── model_weights.h5      # Weights for the CNN classifier
-│   ├── history.pckl          # Training history (accuracy, loss)
+│   ├── history.pkl          # Training history (accuracy, loss)
 ├── static/                   # Generated static files like graphs
 ├── tumor_classification/     # Django app containing the main logic
 │   ├── templates/            # HTML templates
